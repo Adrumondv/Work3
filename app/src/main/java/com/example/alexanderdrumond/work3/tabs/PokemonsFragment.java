@@ -1,9 +1,7 @@
 package com.example.alexanderdrumond.work3.tabs;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,7 +20,7 @@ import com.example.alexanderdrumond.work3.models.Pokemon;
 import com.example.alexanderdrumond.work3.pokemon.AddPokemonActivity;
 
 
-public class PokemonsFragment extends Fragment {
+public class PokemonsFragment extends Fragment implements PokemonListener {
 
     private PokemonAdapter adapter;
     private RecyclerView recyclerView;
@@ -53,7 +51,7 @@ public class PokemonsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        adapter = new PokemonAdapter((PokemonListener) this, new Nodes().poke());
+        adapter = new PokemonAdapter(this, new Nodes().poke());
 
         recyclerView.setAdapter(adapter);
     }
@@ -64,6 +62,18 @@ public class PokemonsFragment extends Fragment {
         adapter.cleanup();
     }
 
+    @Override
+    public void clicked(Pokemon pokemon) {
+        Intent intent= new Intent(getActivity(),AddPokemonActivity.class);
+        intent.putExtra("pokemon",pokemon);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void ready() {
+        progressDialog.dismiss();
+    }
 }
 
 

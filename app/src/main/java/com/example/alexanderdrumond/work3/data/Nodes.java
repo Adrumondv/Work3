@@ -13,8 +13,6 @@ public class Nodes {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference();
 
     public Query availablePokemons(){
-
-
         return root.child("pokemons").orderByChild("availability").equalTo(true);
     }
 

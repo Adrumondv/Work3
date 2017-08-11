@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context="com.example.alexanderdrumond.work3.pokemon.AddPokemonActivity">
 
     <EditText
-        android:id="@+id/titleEt"
-        android:hint="Título"
+        android:id="@+id/nameEt"
+        android:hint="Pokemón"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -20,7 +21,7 @@
 
 
     <Switch
-        android:text="Compartelo!"
+        android:text="Compartir"
         android:id="@+id/shareSw"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
 
     <Button
         android:id="@+id/saveBtn"
-        android:text="Guardar"
+        android:text="Pokedex!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

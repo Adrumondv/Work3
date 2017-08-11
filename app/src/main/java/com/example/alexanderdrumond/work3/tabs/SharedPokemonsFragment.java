@@ -1,8 +1,6 @@
 package com.example.alexanderdrumond.work3.tabs;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,7 +19,7 @@ import com.example.alexanderdrumond.work3.models.Pokemon;
 import com.example.alexanderdrumond.work3.pokemon.AddPokemonActivity;
 
 
-public class SharedPokemonsFragment extends Fragment {
+public class SharedPokemonsFragment extends Fragment implements PokemonListener {
 
     private PokemonAdapter adapter;
     private RecyclerView recyclerView;
@@ -55,4 +53,16 @@ public class SharedPokemonsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void clicked(Pokemon pokemon) {
+
+        Intent intent= new Intent(getActivity(),AddPokemonActivity.class);
+        intent.putExtra("pomeon",pokemon);
+        startActivity(intent);
+    }
+
+    @Override
+    public void ready() {
+
+    }
 }
